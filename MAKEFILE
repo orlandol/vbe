@@ -1,0 +1,32 @@
+all: demo1.exe demo2.exe demo3.exe demo4.exe demo5.exe dumppcx.exe
+
+demo1.exe: demo1.c vbe.h vbe.c gfx.h gfx.c pcx.h pcx.c
+  wcl386 demo1 vbe gfx pcx -zq -bcl=causeway
+
+demo2.exe: demo2.c vbe.h vbe.c gfx.h gfx.c pcx.h pcx.c
+  wcl386 demo2 vbe gfx pcx -zq -bcl=causeway
+
+demo3.exe: demo3.c vbe.h vbe.c gfx.h gfx.c pcx.h pcx.c
+  wcl386 demo3 vbe gfx pcx -zq -bcl=causeway
+
+demo4.exe: demo4.c vbe.h vbe.c gfx.h gfx.c pcx.h pcx.c
+  wcl386 demo4 vbe gfx pcx -zq -bcl=causeway
+
+demo5.exe: demo5.c
+  wcl386 demo5 -zq -bcl=causeway
+
+dumppcx.exe: dumppcx.c
+  wcl386 dumppcx -zq -bcl=causeway
+
+clean: .SYMBOLIC
+  @if exist *.err del   *.err
+  @if exist *.obj del   *.obj
+  @if exist demo1.exe   del demo1.exe
+  @if exist demo2.exe   del demo2.exe
+  @if exist demo3.exe   del demo3.exe
+  @if exist demo4.exe   del demo4.exe
+  @if exist demo5.exe   del demo5.exe
+  @if exist dumppcx.exe del dumppcx.exe
+  @if exist pcxdata     del pcxdata
+  @if exist pcxpal      del pcxpal
+  @if exist pcxhdr.txt  del pcxhdr.txt
